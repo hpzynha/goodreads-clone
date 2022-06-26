@@ -13,3 +13,5 @@ Color primaryUnselectedColor = const Color(0xFF7C655C);
 Color primaryTextColor = const Color(0xFF848484);
 
 Color ratingColor = const Color(0xFFFEA73C);
+
+Color textColorGreen = const Color(0xFF509A80);
