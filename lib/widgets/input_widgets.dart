@@ -14,15 +14,21 @@ class CustomSearchBar extends StatelessWidget {
       width: 270.w,
       child: TextField(
         controller: controller,
+        style: TextStyle(fontSize: 20.sp),
         decoration: InputDecoration(
             labelText: "Search Books",
             prefixIcon: Icon(
               Icons.search,
               color: primaryColor,
             ),
+            filled: true,
             fillColor: backgroundInput,
-            border: OutlineInputBorder(
-                borderRadius: BorderRadius.all(Radius.circular(8)))),
+            border: const OutlineInputBorder(
+                borderSide: BorderSide.none,
+                borderRadius: BorderRadius.all(Radius.circular(8))),
+            focusedBorder: InputBorder.none,
+            floatingLabelBehavior: FloatingLabelBehavior.never),
+        cursorColor: primaryColor,
       ),
     );
   }

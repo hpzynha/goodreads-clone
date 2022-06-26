@@ -15,7 +15,7 @@ class LoginPage extends StatelessWidget {
                 onPressed: () {
                   Navigator.pushNamed(context, '/home');
                 },
-                child: Text('enter')),
+                child: const Text('enter')),
           ))
         ]),
       ),

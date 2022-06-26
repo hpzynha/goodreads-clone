@@ -25,13 +25,15 @@ class _HomePageState extends State<HomePage> {
                 children: [
                   CustomSearchBar(controller: _searchBooks),
                   Padding(
-                    padding: EdgeInsets.only(right: 16.w),
-                    child: Icon(
-                      Icons.qr_code_scanner,
-                      color: primaryColor,
-                      size: 30,
-                    ),
-                  ),
+                      padding: EdgeInsets.only(right: 10.w),
+                      child: IconButton(
+                        icon: Icon(
+                          Icons.qr_code_scanner,
+                          color: primaryColor,
+                          size: 30,
+                        ),
+                        onPressed: () {},
+                      )),
                 ],
               ),
             ),
