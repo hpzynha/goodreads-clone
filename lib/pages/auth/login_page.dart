@@ -56,11 +56,23 @@ class _LoginPageState extends State<LoginPage> {
                   focusedBorder: UnderlineInputBorder(
                       borderSide: BorderSide(color: primaryColor))),
             ),
-            ElevatedButton(onPressed: () => login(), child: Text('Log In')),
+            Padding(
+              padding: const EdgeInsets.only(top: 5),
+              child:
+                  TextButton(onPressed: () {}, child: Text('Forgot password?')),
+            ),
+            Padding(
+              padding: EdgeInsets.only(top: 10.h),
+              child: ElevatedButton(
+                  onPressed: () => login(), child: Text('Log In')),
+            ),
             ElevatedButton(onPressed: () {}, child: Text('Sign Up')),
-            Text(
-              'By using Goodreads, you agree to our Terms of Use, Privacy Policy and Ads Policy.',
-              style: GoogleFonts.roboto(fontSize: 14.sp, color: primaryColor),
+            Padding(
+              padding: EdgeInsets.only(top: 20.h),
+              child: Text(
+                'By using Goodreads, you agree to our Terms of Use, Privacy Policy and Ads Policy.',
+                style: GoogleFonts.roboto(fontSize: 14.sp, color: primaryColor),
+              ),
             )
           ],
         ));
