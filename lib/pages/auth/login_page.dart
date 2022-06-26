@@ -1,24 +1,64 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
-class LoginPage extends StatelessWidget {
+class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
 
   @override
+  State<LoginPage> createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
+  final _emailController = TextEditingController();
+  final _passwordController = TextEditingController();
+  final _firebaseAuth = FirebaseAuth.instance;
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SingleChildScrollView(
-        child: Column(children: [
-          Center(
-              child: Padding(
-            padding: const EdgeInsets.only(top: 50),
-            child: ElevatedButton(
-                onPressed: () {
-                  Navigator.pushNamed(context, '/home');
-                },
-                child: const Text('enter')),
-          ))
-        ]),
-      ),
-    );
+        appBar: AppBar(
+          elevation: 0,
+          backgroundColor: Colors.transparent,
+        ),
+        body: ListView(
+          padding: EdgeInsets.all(15),
+          children: [
+            TextFormField(
+              controller: _emailController,
+              decoration: InputDecoration(label: Text('email')),
+            ),
+            TextFormField(
+              controller: _passwordController,
+              decoration: InputDecoration(label: Text('password')),
+            ),
+            ElevatedButton(onPressed: () => login(), child: Text('Entrar'))
+          ],
+        ));
+  }
+
+  login() async {
+    try {
+      UserCredential userCredential =
+          await _firebaseAuth.signInWithEmailAndPassword(
+              email: _emailController.text, password: _passwordController.text);
+      if (userCredential != null) {
+        Navigator.pushNamed(context, '/home');
+      }
+    } on FirebaseAuthException catch (e) {
+      if (e.code == 'user-not-found') {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Text('User not Found'),
+            backgroundColor: Colors.redAccent,
+          ),
+        );
+      } else if (e.code == 'wrong-password') {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Text('Wrong Password'),
+            backgroundColor: Colors.redAccent,
+          ),
+        );
+      }
+    }
   }
 }
