@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -7,8 +8,17 @@ import 'package:material_design_icons_flutter/material_design_icons_flutter.dart
 import '../../../helpers/app_colors.dart';
 import '../../../widgets/input_widgets.dart';
 
-class HomeWidget extends StatelessWidget {
+class HomeWidget extends StatefulWidget {
   const HomeWidget({Key? key}) : super(key: key);
+
+  @override
+  State<HomeWidget> createState() => _HomeWidgetState();
+}
+
+class _HomeWidgetState extends State<HomeWidget> {
+  signOut() {
+    FirebaseAuth.instance.signOut();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +41,7 @@ class HomeWidget extends StatelessWidget {
                         color: primaryColor,
                         size: 30,
                       ),
-                      onPressed: () {},
+                      onPressed: signOut,
                     )),
               ],
             ),
