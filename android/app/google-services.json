@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "235577473672",
+    "project_id": "goodreads-clone-ea28d",
+    "storage_bucket": "goodreads-clone-ea28d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:235577473672:android:36cae0c99d376eb8427d3d",
+        "android_client_info": {
+          "package_name": "com.example.goodreads"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "235577473672-1g1pote0si581u4j08dpppgq7nrhh3bp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC48qYqKyg_AguxkiSJhmrHjScwNV7zrFg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "235577473672-1g1pote0si581u4j08dpppgq7nrhh3bp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

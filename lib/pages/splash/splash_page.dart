@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:goodreads/helpers/app_colors.dart';
 import 'package:goodreads/pages/auth/login_page.dart';
 
+import '../auth/check_login.dart';
+
 class SplashPage extends StatelessWidget {
   const SplashPage({Key? key}) : super(key: key);
 
@@ -14,7 +16,7 @@ class SplashPage extends StatelessWidget {
         splash: Image.asset('assets/images/logo.png'),
         duration: 2000,
         backgroundColor: backgroundColor,
-        nextScreen: const LoginPage(),
+        nextScreen: const CheckLogin(),
         splashTransition: SplashTransition.fadeTransition,
       )),
     );
