@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:goodreads/helpers/app_colors.dart';
-import 'package:goodreads/widgets/input_widgets.dart';
+import 'package:goodreads/pages/home/widget/home_books_widget.dart';
+import 'package:goodreads/pages/home/widget/home_explore_widget.dart';
+import 'package:goodreads/pages/home/widget/home_widget.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -11,35 +12,60 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  final TextEditingController _searchBooks = TextEditingController();
+  bool selected = false;
+  int _indiceAtual = 0;
+  final List<Widget> _telas = [
+    HomeWidget(),
+    HomeExploreWidget(),
+    HomeBooksWidget(),
+    HomeWidget(),
+  ];
+
+  void onTabTapped(int index) async {
+    setState(() {
+      _indiceAtual = index;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 60.h),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  CustomSearchBar(controller: _searchBooks),
-                  Padding(
-                      padding: EdgeInsets.only(right: 10.w),
-                      child: IconButton(
-                        icon: Icon(
-                          Icons.qr_code_scanner,
-                          color: primaryColor,
-                          size: 30,
-                        ),
-                        onPressed: () {},
-                      )),
-                ],
+      body: _telas[_indiceAtual],
+      bottomNavigationBar: BottomNavigationBar(
+          currentIndex: _indiceAtual,
+          backgroundColor: backgroundInput,
+          onTap: onTabTapped,
+          showSelectedLabels: false,
+          showUnselectedLabels: false,
+          type: BottomNavigationBarType.fixed,
+          items: [
+            BottomNavigationBarItem(
+              icon: Icon(
+                Icons.home,
+                color: primaryColor,
               ),
+              label: "Home",
             ),
-          ],
-        ),
-      ),
+            BottomNavigationBarItem(
+              icon: Icon(
+                Icons.explore,
+                color: primaryColor,
+              ),
+              label: "Explore",
+            ),
+            BottomNavigationBarItem(
+                icon: Icon(
+                  Icons.book,
+                  color: primaryColor,
+                ),
+                label: "Books"),
+            BottomNavigationBarItem(
+                icon: Icon(
+                  Icons.menu,
+                  color: primaryColor,
+                ),
+                label: "Menu"),
+          ]),
     );
   }
 }
