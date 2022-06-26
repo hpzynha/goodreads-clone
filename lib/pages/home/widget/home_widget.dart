@@ -10,7 +10,7 @@ class HomeWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final TextEditingController _searchBooks = TextEditingController();
+    final TextEditingController searchBooks = TextEditingController();
     return SingleChildScrollView(
       child: Column(
         children: [
@@ -19,7 +19,7 @@ class HomeWidget extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                CustomSearchBar(controller: _searchBooks),
+                CustomSearchBar(controller: searchBooks),
                 Padding(
                     padding: EdgeInsets.only(right: 10.w),
                     child: IconButton(

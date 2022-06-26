@@ -15,10 +15,10 @@ class _HomePageState extends State<HomePage> {
   bool selected = false;
   int _indiceAtual = 0;
   final List<Widget> _telas = [
-    HomeWidget(),
-    HomeExploreWidget(),
-    HomeBooksWidget(),
-    HomeWidget(),
+    const HomeWidget(),
+    const HomeExploreWidget(),
+    const HomeBooksWidget(),
+    const HomeWidget(),
   ];
 
   void onTabTapped(int index) async {

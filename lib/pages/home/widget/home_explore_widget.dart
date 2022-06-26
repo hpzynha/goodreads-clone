@@ -5,6 +5,6 @@ class HomeExploreWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(child: Text('hey'));
+    return const Center(child: Text('hey'));
   }
 }
